@@ -1,5 +1,27 @@
-<div class="w-full h-full flex items-center justify-center">
-    <div class="h-9 w-9 bg-red-600">
-        <p>login works!</p>
+<div class="w-full h-full flex items-center justify-center bg-slate-600">
+    <div class="h-[600px] w-[500px] bg-white rounded-2xl flex items-center justify-center flex-col">
+        <div class="text-4xl mb-5">
+            Login
+        </div>
+        <form class="w-[80%]" [formGroup]="form">
+            <mat-form-field class="w-full">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" [formControl]="usernameControl">
+              </mat-form-field>
+
+              <mat-form-field class="w-full">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" [formControl]="passwordControl">
+              </mat-form-field>
+
+              <div class="mb-5 h-6 text-blue-600">
+                <button class="float-start" (click)="onForgot()">Forgot credentials</button>
+                <button class="float-end" (click)="onCreateAccount()">Create Account</button>
+              </div>
+
+              <button class="w-full" mat-flat-button type="submit" (click)="onSubmit()" [disabled]="!form.valid">
+                Sign in
+              </button>
+        </form>
     </div>
 </div>

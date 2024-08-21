@@ -7,9 +7,9 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private jwtToken!: JwtToken;
+  private _token!: JwtToken;
 
-  authenticate() : Observable<JwtToken> {
+  public authenticate() : Observable<JwtToken> {
     //TODO implement real auth
     return of({
       user: 'testUser',
@@ -17,6 +17,14 @@ export class AuthenticationService {
       exp: 'tempExpiration',
       clearances: ['all']
     }
-  ).pipe(tap((result: JwtToken) => this.jwtToken = result))
+  ).pipe(tap((result: JwtToken) => this._token = result))
+  }
+
+  public get token() {
+    return this._token;
+  }
+
+  public isExpired() {
+    return false;
   }
 }
