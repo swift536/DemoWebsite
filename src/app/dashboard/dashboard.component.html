@@ -1,1 +1,10 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="headerDropdown">
+      <mat-icon>menu</mat-icon>
+      <mat-menu #headerDropdown="matMenu">
+        <button mat-menu-item [routerLink]="['login']">Login</button>
+      </mat-menu>
+    </button>
+    <span>Genuine Developer</span>
+  </mat-toolbar>
 <p>dashboard works!</p>
